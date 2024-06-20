@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="montantfinal" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a9025744-29be-4d9c-a68b-9dc42fe215f4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="false"/>
+	<parameter name="devis_id" class="java.lang.Long" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[select * from accesmizan.devis where devis_id=$P{devis_id}]]>
+	</queryString>
+	<field name="devis_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="devis_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="devis_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="tva" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="tva"/>
+		<property name="com.jaspersoft.studio.field.label" value="tva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="annee" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="annee"/>
+		<property name="com.jaspersoft.studio.field.label" value="annee"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="devis_discount" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="devis_discount"/>
+		<property name="com.jaspersoft.studio.field.label" value="devis_discount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="devis_discountp" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="devis_discountp"/>
+		<property name="com.jaspersoft.studio.field.label" value="devis_discountp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="montant_tva" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="montant_tva"/>
+		<property name="com.jaspersoft.studio.field.label" value="montant_tva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="montant_remise" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="montant_remise"/>
+		<property name="com.jaspersoft.studio.field.label" value="montant_remise"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="devis_note" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="devis_note"/>
+		<property name="com.jaspersoft.studio.field.label" value="devis_note"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="ref_devis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ref_devis"/>
+		<property name="com.jaspersoft.studio.field.label" value="ref_devis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="tva_present" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="tva_present"/>
+		<property name="com.jaspersoft.studio.field.label" value="tva_present"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="project_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="project_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="project_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="status_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="status_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="status_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="montant" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="montant"/>
+		<property name="com.jaspersoft.studio.field.label" value="montant"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="mp1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mp1"/>
+		<property name="com.jaspersoft.studio.field.name" value="mp1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="mp2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mp2"/>
+		<property name="com.jaspersoft.studio.field.name" value="mp2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="mp3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mp3"/>
+		<property name="com.jaspersoft.studio.field.name" value="mp3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="mp4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mp4"/>
+		<property name="com.jaspersoft.studio.field.name" value="mp4"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="mp5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mp5"/>
+		<property name="com.jaspersoft.studio.field.name" value="mp5"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="pmp1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pmp1"/>
+		<property name="com.jaspersoft.studio.field.name" value="pmp1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="pmp2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pmp2"/>
+		<property name="com.jaspersoft.studio.field.name" value="pmp2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="pmp3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pmp3"/>
+		<property name="com.jaspersoft.studio.field.name" value="pmp3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="pmp4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pmp4"/>
+		<property name="com.jaspersoft.studio.field.name" value="pmp4"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="pmp5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pmp5"/>
+		<property name="com.jaspersoft.studio.field.name" value="pmp5"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<field name="remiserapport" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="remiserapport"/>
+		<property name="com.jaspersoft.studio.field.name" value="remiserapport"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="devis"/>
+	</field>
+	<variable name="montant_remisecalculer" class="java.lang.Integer">
+		<variableExpression><![CDATA[$F{montant}*12/100]]></variableExpression>
+	</variable>
+	<variable name="porcentage_remisecalculer" class="java.lang.Integer">
+		<variableExpression><![CDATA[$F{devis_discount}*100/$F{montant}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="17" splitType="Prevent">
+			<textField>
+				<reportElement x="228" y="1" width="181" height="15" uuid="ba9eebb1-370b-4d36-a375-81979ba5ec7e"/>
+				<textElement textAlignment="Right">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MONTANT TOTAL EN MRU HT"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="424" height="17" uuid="d6439ead-adbc-4d06-98e9-841a5c396570">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="424" y="0" width="72" height="17" uuid="2e068907-509e-45e2-be2c-d614b73877b0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="#,##0">
+				<reportElement x="429" y="1" width="62" height="15" uuid="3d39bc90-c185-46ed-a808-28ea953ba32f"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montant}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="34" splitType="Prevent">
+			<printWhenExpression><![CDATA[$F{devis_discountp} != null && $F{devis_discountp} != 0 ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="309" y="1" width="70" height="15" uuid="ff9dac2b-7c85-46e2-a130-e9ad28dd0bec"/>
+				<textElement textAlignment="Right">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["REMISE de"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="1" width="30" height="15" uuid="db11bfa4-a76c-471e-add8-8d474c328f03"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devis_discountp}+ "%"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="18" width="181" height="15" uuid="3f5d1717-36bf-449c-a599-02aed4dfc322"/>
+				<textElement textAlignment="Right">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MONTANT APRES REMISE"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="424" height="17" uuid="8b195dfa-c664-4ba1-86b1-07f145ea424d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="424" y="0" width="72" height="17" uuid="d6f9de29-24cd-401b-8176-38f5691b0871">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="#,##0">
+				<reportElement x="425" y="18" width="70" height="15" uuid="ecddd420-df31-43a9-8996-005343358240"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montant_remise}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="17" width="424" height="17" uuid="6df701f9-e8ba-4c54-a77b-ae8f7ff0963e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="424" y="17" width="72" height="17" uuid="f64300eb-db0f-4747-92b7-89f2edc32e32">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="#,##0">
+				<reportElement x="431" y="1" width="59" height="14" uuid="a0ec6e37-b48f-4337-9348-6a346e94e89f"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{montant_remisecalculer}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="34" splitType="Prevent">
+			<printWhenExpression><![CDATA[$F{devis_discount} != null && $F{devis_discount} != 0 ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="309" y="1" width="70" height="15" uuid="4d6b940b-ed4e-4748-800d-a60a6ba12685"/>
+				<textElement textAlignment="Right">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["REMISE de"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="18" width="181" height="15" uuid="0e0bbdf4-c8de-450d-8ec4-840733629e00"/>
+				<textElement textAlignment="Right">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MONTANT APRES REMISE"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="424" height="17" uuid="fda412f5-8b60-4a3c-bc14-fe188c8ea8e3">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="424" y="0" width="72" height="17" uuid="0721675f-e489-44cd-ab16-48dc4957f02d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="#,##0">
+				<reportElement x="425" y="18" width="70" height="15" uuid="926deb1f-2c98-4e3a-9be6-4f03b72c174b"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montant_remise}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="17" width="423" height="17" uuid="4e8e3862-3163-4771-bb1c-6a787791a475">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="424" y="17" width="72" height="17" uuid="ec222491-713d-4900-9e56-f2f261a29179">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="379" y="1" width="24" height="14" uuid="1b6241ea-d449-40ff-a6b2-25530de7e36f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{porcentage_remisecalculer}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="431" y="1" width="59" height="14" uuid="74f07e70-ac40-4cbd-b588-6bbd1ffd6bf5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devis_discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="1" width="18" height="14" uuid="157e40b5-1968-4197-945a-045d05372c87">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["%"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17" splitType="Prevent">
+			<printWhenExpression><![CDATA[$F{tva_present} != null && $F{tva_present} ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="340" y="1" width="70" height="15" uuid="083a79aa-0eb0-4673-a70c-1d8e3af348fd"/>
+				<textElement textAlignment="Right">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TVA (%) :"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="424" height="17" uuid="1110357c-c286-4445-812b-897035009c83">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="424" y="0" width="72" height="17" uuid="5279572a-09bf-4d20-a6c7-0ce40416d487">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="433" y="1" width="54" height="14" uuid="d2ab16c7-3d07-4e0c-9343-83d7b1e2bae0"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tva}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17">
+			<textField>
+				<reportElement x="228" y="0" width="181" height="15" uuid="ed4200a1-5201-4ad6-b522-27a89f3ec7cf"/>
+				<textElement textAlignment="Right">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MONTANT TOTAL TTC (MRU)"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="424" height="17" uuid="1a7290a3-7dce-4c3e-9836-2681280e29f9">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="424" y="0" width="72" height="17" uuid="7b630df2-8a9f-4e78-b574-9ed3f17e7631">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="#,##0">
+				<reportElement x="425" y="0" width="71" height="15" uuid="124a57b8-0efa-43c5-acfd-7db4bd60ce32"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizantimebold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montant_tva}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="60" splitType="Prevent">
+			<textField>
+				<reportElement x="40" y="20" width="160" height="20" uuid="0760cad6-6bcb-486a-a0ee-9fda99437e48"/>
+				<textElement>
+					<font fontName="DejaVu Serif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Conditions de l'offre :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="40" width="354" height="20" uuid="aea60498-1d73-44ec-9184-93ae11202def"/>
+				<textElement>
+					<font fontName="DejaVu Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["•  Date de démarrage : après validation et paiement  "]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{remiserapport} != null && !$F{remiserapport}.isEmpty() ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="60" y="0" width="100" height="20" uuid="866c092a-52cf-462d-b7eb-e63e49de1ada"/>
+				<textFieldExpression><![CDATA["•  Remise du rapport : "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="224" height="20" uuid="4c049fbc-4c8b-446a-8786-d05b9b7b1c9f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{remiserapport}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<textField>
+				<reportElement x="60" y="0" width="130" height="20" uuid="cd4e4eec-dce3-4c0d-9461-de0230499777"/>
+				<textFieldExpression><![CDATA["•  Modalités de paiement	:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{mp1} != null && !$F{mp1}.isEmpty() ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="60" y="0" width="51" height="20" uuid="e4dbba78-f2a3-493a-b076-cecd1541d5d4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{mp1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="294" height="20" uuid="00ca8322-d797-44a7-8889-c1af62211e81">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{pmp1}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{mp2} != null && !$F{mp2}.isEmpty() ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="60" y="0" width="51" height="20" uuid="2a89e7bc-db41-4d11-a4da-f7097a170a4e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{mp2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="294" height="20" uuid="496d3033-f636-4761-bd87-c8206ef579f5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{pmp2}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{mp3} != null && !$F{mp3}.isEmpty() ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="60" y="0" width="51" height="20" uuid="aacbfb98-d96d-4b7a-b530-800f82084336"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{mp3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="294" height="20" uuid="23d68c5f-be69-4609-a631-baa3411f5be5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{pmp3}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{mp4} != null && !$F{mp4}.isEmpty() ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="60" y="0" width="51" height="20" uuid="3966085b-c9be-49f6-a29a-d74d0d220bec"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{mp4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="294" height="20" uuid="361eb07a-cb78-4b76-abfb-a4c6109eb740">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{pmp4}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{mp5} != null && !$F{mp5}.isEmpty() ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<textField>
+				<reportElement x="60" y="0" width="51" height="20" uuid="c4716291-42c8-4dcd-922a-cf270f5fc63f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{mp5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="294" height="20" uuid="b7cd28dd-8ef6-404b-95f0-4b898a71442e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{pmp5}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="80">
+			<textField>
+				<reportElement x="319" y="20" width="160" height="20" uuid="e27c0a4c-8b06-41c4-8762-d72805736193"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Le Directeur"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="40" width="110" height="40" uuid="50a07bd3-cba1-41d7-aa37-c1c4e35a9bad"/>
+				<textFieldExpression><![CDATA["Lemrabott ELEYATT"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="20" width="160" height="60" uuid="70bab066-382d-4be5-aa4d-46bf1d69b29e"/>
+				<textElement textAlignment="Left">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Le client"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="elementdevisfinal" pageWidth="595" pageHeight="830" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="7a14dea8-1e66-478a-aecf-7261ca9ee5ab">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="task_id" class="java.lang.Long" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[select * from accesmizan.element_devis where task_id=$P{task_id}]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="element_note" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="element_note"/>
+		<property name="com.jaspersoft.studio.field.label" value="element_note"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="element_qty" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="element_qty"/>
+		<property name="com.jaspersoft.studio.field.label" value="element_qty"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="montant" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="montant"/>
+		<property name="com.jaspersoft.studio.field.label" value="montant"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="nbre_lots" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nbre_lots"/>
+		<property name="com.jaspersoft.studio.field.label" value="nbre_lots"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="prix_unitaire" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="prix_unitaire"/>
+		<property name="com.jaspersoft.studio.field.label" value="prix_unitaire"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="qte_lots" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="qte_lots"/>
+		<property name="com.jaspersoft.studio.field.label" value="qte_lots"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="ref_edevis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ref_edevis"/>
+		<property name="com.jaspersoft.studio.field.label" value="ref_edevis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="type"/>
+		<property name="com.jaspersoft.studio.field.label" value="type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="unite" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="unite"/>
+		<property name="com.jaspersoft.studio.field.label" value="unite"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="element_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="element_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="element_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="status_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="status_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="status_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<field name="task_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="task_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="task_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="element_devis"/>
+	</field>
+	<variable name="Totaltype" class="java.math.BigDecimal" resetType="Group" resetGroup="type" calculation="Sum">
+		<variableExpression><![CDATA[$F{montant}]]></variableExpression>
+		<initialValueExpression><![CDATA[1]]></initialValueExpression>
+	</variable>
+	<variable name="totaltask" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{montant}]]></variableExpression>
+		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
+	</variable>
+	<variable name="ElementCountType" class="java.lang.Integer" resetType="Group" resetGroup="type" calculation="Count">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="IncrementVariable" class="java.lang.Integer" resetType="Group" resetGroup="type" calculation="Count">
+		<variableExpression><![CDATA[$V{IncrementVariable}.intValue() + 1]]></variableExpression>
+		<initialValueExpression><![CDATA[1]]></initialValueExpression>
+	</variable>
+	<variable name="counttype" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{type}]]></variableExpression>
+	</variable>
+	<variable name="count" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{counttype}+1]]></variableExpression>
+		<initialValueExpression><![CDATA[1]]></initialValueExpression>
+	</variable>
+	<group name="type">
+		<groupExpression><![CDATA[$F{type}]]></groupExpression>
+		<groupHeader>
+			<band height="17">
+				<textField>
+					<reportElement x="30" y="1" width="420" height="14" uuid="c2b25d99-3990-4661-944a-135004647cb6"/>
+					<textElement textAlignment="Left">
+						<font fontName="mizanCalibriBold" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Transparent" x="19" y="0" width="457" height="17" uuid="41f678bf-8966-4402-b9cd-6938e71cafd7">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.2"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="-20" y="0" width="39" height="17" uuid="6c1a31e3-0e0d-4da2-8458-3e42a0154d90">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.2"/>
+					</graphicElement>
+				</rectangle>
+				<textField>
+					<reportElement x="-5" y="2" width="20" height="15" uuid="bc869b5a-5d5a-4c02-baeb-a82e1d218aa9"/>
+					<textElement>
+						<font fontName="mizanCalibriBold" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{count}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="13">
+				<textField pattern="#,##0">
+					<reportElement x="408" y="-1" width="64" height="14" uuid="3125c8da-0f8f-46b6-b3bf-f816b18292f2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="mizanCalibriBold" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{Totaltype}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Transparent" x="-20" y="0" width="39" height="13" uuid="acf8af1f-51e9-4c6e-9dd7-a10834837740">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.2"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="404" y="0" width="72" height="13" uuid="11812d79-d933-4df6-b8fb-5d69fd7c52cb">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.2"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="19" y="0" width="385" height="13" uuid="a94a67f1-3335-46c4-a816-aabb4402f396">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.2"/>
+					</graphicElement>
+				</rectangle>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="3" width="180" height="26" uuid="75b270f4-d3b6-4102-8abd-48fceafe4736">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="mizanCalibri" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="7" width="55" height="20" uuid="00c0b82c-e929-4459-8247-98cde1e58d32"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizanCalibri" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unite}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="287" y="7" width="49" height="20" uuid="3de00cad-3d44-400c-8796-0b99db3a7736"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizanCalibri" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{element_qty}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="340" y="7" width="64" height="20" uuid="187f7251-9346-47c2-9188-96e15ad8ce03"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizanCalibri" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prix_unitaire}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="408" y="7" width="64" height="20" uuid="d8fed01c-a50e-4a14-bdfa-4ab83cf6f6a7"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizanCalibriBold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="9" width="15" height="13" uuid="3e441863-cfed-41a5-a418-f816fe7e9108"/>
+				<textElement textAlignment="Left">
+					<font fontName="mizanCalibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{ElementCountType}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="19" y="0" width="202" height="29" uuid="fc40d4d2-57c0-4360-a147-8689fa8cbba6">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="339" y="0" width="65" height="29" uuid="b5b4b817-8c58-4cb6-b980-76939e3b01be"/>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="404" y="0" width="72" height="29" uuid="4eb98156-80ab-41fa-a6fe-7e6655c64a33">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="-14" y="9" width="14" height="20" uuid="ce0d755b-fa99-4411-aa47-8eab2a597b0d"/>
+				<textElement textAlignment="Right">
+					<font fontName="mizanCalibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{counttype} + "."]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="287" y="0" width="52" height="29" uuid="fc458f30-35dd-434b-abc7-87193043a6e7"/>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="221" y="0" width="66" height="29" uuid="a898c755-6825-4f30-893f-dcf55516761c"/>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="-20" y="0" width="39" height="29" uuid="e11be65b-ab4f-49c8-b6dc-ee4efee2f87a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="25"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="14">
+			<textField pattern="#,##0">
+				<reportElement x="405" y="0" width="70" height="14" uuid="dafa21ba-6fe2-4e4f-8cd4-b7325b2cd8f7"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizanCalibriBold" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totaltask}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="60" height="14" uuid="9e8fe790-1c3f-4ec1-a3a3-760a196fcf00"/>
+				<textElement textAlignment="Center">
+					<font fontName="mizanCalibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["total Task"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="-20" y="0" width="39" height="14" uuid="831d8c13-f3e6-4828-a4a3-b47a3753c9ea">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="-20" y="0" width="496" height="14" uuid="c07ed4e8-6ddd-4466-aff3-c3fe12fa6ffb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="19" y="0" width="202" height="14" uuid="b6a8c847-042c-40fb-b63e-679f24848f74">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="404" y="0" width="72" height="14" uuid="b47738fa-c1fe-446f-981b-d5b2f0fc0a08">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</lastPageFooter>
+</jasperReport>

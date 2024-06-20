@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="Mizantimenewroman">
+		<normal><![CDATA[fonts/Mizantimenewroman/times new roman bold italic.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="Mizantimenewroman">
+		<normal><![CDATA[fonts/Mizantimenewroman/times new roman bold.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+
+	</fontFamily>
+	<fontFamily name="mizantimebold">
+		<normal><![CDATA[fonts/mizantimebold/times new roman bold.ttf]]></normal>
+		<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+
+	</fontFamily>
+	<fontFamily name="mizantime">
+		<normal><![CDATA[fonts/mizantime/times new roman.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="mizantimeitalic">
+		<normal><![CDATA[fonts/mizantimeitalic/times new roman italic.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="Mizanarialblack">
+		<normal><![CDATA[fonts/Mizanarialblack/Arial Black.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="Mizanarialitalic">
+		<normal><![CDATA[fonts/Mizanarialitalic/ARIALI.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="mizandejavuserif">
+		<normal><![CDATA[fonts/mizandejavuserif/DejaVuSerif.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="mizandejavuserif">
+		<normal><![CDATA[fonts/mizandejavuserif/DejaVuSerif-Bold.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="mizanCalibri">
+		<normal><![CDATA[fonts/mizanCalibri/Calibri.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="mizanCalibriBold">
+		<normal><![CDATA[fonts/mizanCalibriBold/calibrib.ttf]]></normal>
+<!--		<pdfEncoding><![CDATA[Cp1257]]></pdfEncoding>-->
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+</fontFamilies>

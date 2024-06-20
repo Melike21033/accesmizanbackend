@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d2dca59-d072-4472-9c7e-a9c1b4fa38d0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="DevisID" class="java.lang.Long"/>
+	<parameter name="Date" class="java.util.Date"/>
+	<parameter name="Client" class="java.lang.String"/>
+	<parameter name="ProjectName" class="java.lang.String"/>
+	<title>
+		<band height="76">
+			<staticText>
+				<reportElement x="340" y="5" width="200" height="39" uuid="123e4567-e89b-12d3-a456-426614174000"/>
+				<textElement>
+					<font fontName="Arial Black" size="26"/>
+				</textElement>
+				<text><![CDATA[MIZAN LABS ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="40" width="200" height="19" uuid="400c34e0-e451-4c67-b6b5-7549cd457f7a"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Laboratory and Engineering services]]></text>
+			</staticText>
+			<image>
+				<reportElement x="20" y="8" width="130" height="49" uuid="cc7cbced-e5fb-4ffa-9b1d-c65fa1d0d72e"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50">
+			<textField pattern="yyyy-MM-dd">
+				<reportElement x="20" y="10" width="80" height="20" uuid="123e4567-e89b-12d3-a456-426614174001"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date : " + $P{Date}]]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="30" width="200" height="20" uuid="a12e4567-e89b-12d3-a456-426614174000"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Réf. : " + $P{DevisID}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="12" y="0" width="530" height="1" uuid="8dcdcd43-f9a7-472c-b2d3-c9c7a609e912">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#4A4A4A"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="553">
+			<staticText>
+				<reportElement x="20" y="60" width="50" height="20" uuid="123e4567-e89b-12d3-a456-426614174002"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Objet : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="10" width="180" height="40" uuid="f7a295b7-8152-4bda-9829-08b23a0212f8"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Client :" + $P{Client}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="260" height="30" uuid="351c21fa-3070-4950-9352-624e7aa6e40d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{taskName} + " - " + $P{ProjectName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="100" width="150" height="20" uuid="2a2138ef-153b-438b-8d21-37612de4eb9b"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Documents de référence :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="123" width="230" height="16" uuid="de670beb-054c-4c4a-941a-2142c6a454bf"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[•	Demande de proposition du 10 Aout 2023]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="160" width="80" height="20" uuid="f3ec6636-877c-4d6f-9c00-0cec8e8ab65f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Devis :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="70">
+			<staticText>
+				<reportElement x="40" y="40" width="480" height="16" uuid="123e4567-e89b-12d3-a456-426614174003"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Groupe ACCESS ENGINEERING/MIZAN LABS, MD B N°252, Tevragh Zeina - Nouakchott]]></text>
+			</staticText>
+			<line>
+				<reportElement x="12" y="30" width="530" height="1" forecolor="#4A4A4A" uuid="3113412e-ce2a-40a8-bbc3-b03c7d772236">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="40" y="56" width="480" height="14" uuid="1060035e-1f83-478d-bd6b-4d8d3d73dadd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Tél: (P) +222 32 04 66 24, +222 45 29 85 04, Email: bureau.access@gmail.com, siteweb: www.acccess.mr]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

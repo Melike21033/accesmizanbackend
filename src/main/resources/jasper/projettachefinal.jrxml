@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="projettachefinal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b1f262ff-1854-48b6-b106-9442037b0c1c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="devis_id" class="java.lang.Long" isForPrompting="false"/>
+	<parameter name="project_name" class="java.lang.String" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[select * from accesmizan.task where devis_id=$P{devis_id}]]>
+	</queryString>
+	<field name="task_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="task_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="task_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="task_deadline" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="task_deadline"/>
+		<property name="com.jaspersoft.studio.field.label" value="task_deadline"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="task_note" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="task_note"/>
+		<property name="com.jaspersoft.studio.field.label" value="task_note"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="ref_task" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ref_task"/>
+		<property name="com.jaspersoft.studio.field.label" value="ref_task"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="task_start" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="task_start"/>
+		<property name="com.jaspersoft.studio.field.label" value="task_start"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="task_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="task_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="task_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="devis_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="devis_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="devis_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="priority_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="priority_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="priority_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="project_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="project_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="project_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<field name="status_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="status_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="status_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="task"/>
+	</field>
+	<variable name="tasks_concat" class="java.lang.String" resetType="None">
+		<variableExpression><![CDATA[$V{tasks_concat} == null ? $F{task_name} : $V{tasks_concat} + "- " + $F{task_name}]]></variableExpression>
+		<initialValueExpression><![CDATA[""]]></initialValueExpression>
+	</variable>
+	<variable name="uniqueTasks" class="java.lang.String">
+		<variableExpression><![CDATA[$V{uniqueTasks} == null || !$V{uniqueTasks}.contains($F{task_name}) ? ($V{uniqueTasks} == null ? $P{project_name} + "- " + $F{task_name} : $V{uniqueTasks} + "- " + $F{task_name}) : $V{uniqueTasks}]]></variableExpression>
+		<initialValueExpression><![CDATA[""]]></initialValueExpression>
+	</variable>
+	<variable name="taskPresenceCheck" class="java.lang.Boolean">
+		<variableExpression><![CDATA[$V{uniqueTasks} == null || !$V{uniqueTasks}.contains($F{task_name})]]></variableExpression>
+		<initialValueExpression><![CDATA[true]]></initialValueExpression>
+	</variable>
+	<variable name="nonDuplicatedTasks" class="java.lang.String">
+		<variableExpression><![CDATA[$V{nonDuplicatedTasks} == null || $V{nonDuplicatedTasks}.isEmpty() ? $F{task_name} : $V{nonDuplicatedTasks} + "- " + $F{task_name}]]></variableExpression>
+		<initialValueExpression><![CDATA[""]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<summary>
+		<band height="110">
+			<textField>
+				<reportElement x="0" y="0" width="360" height="110" uuid="cecbd07d-2e58-40c5-946d-cf3182b185b7"/>
+				<textElement>
+					<font fontName="mizantime" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{uniqueTasks} == null ? $P{project_name} : "Proposition technico-financiere "+$V{uniqueTasks} + "- " + $P{project_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

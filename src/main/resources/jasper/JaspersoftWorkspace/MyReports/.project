@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>MyReports</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>net.sf.jasperreports.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>net.sf.jasperreports.nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>mizan_devis.jrxml</name>
+			<type>1</type>
+			<location>C:/Users/med edine/JaspersoftWorkspace/MyReports/mizan_devis.jrxml</location>
+		</link>
+		<link>
+			<name>mizan_devis_1.jrxml</name>
+			<type>1</type>
+			<location>C:/Users/med edine/Desktop/pi_mizan_final_version/MizanBasefinal/MizanBase/src/main/resources/jasper/mizan_devis.jrxml</location>
+		</link>
+	</linkedResources>
+</projectDescription>

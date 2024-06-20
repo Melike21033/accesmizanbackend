@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d2dca59-d072-4472-9c7e-a9c1b4fa38d0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<title>
+		<band height="78">
+			<staticText>
+				<reportElement x="340" y="0" width="200" height="39" uuid="123e4567-e89b-12d3-a456-426614174000"/>
+				<textElement>
+					<font fontName="Arial Black" size="26"/>
+				</textElement>
+				<text><![CDATA[MIZAN LABS ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="30" width="200" height="19" uuid="400c34e0-e451-4c67-b6b5-7549cd457f7a"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Laboratory and Engineering services]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="20" uuid="123e4567-e89b-12d3-a456-426614174001"/>
+				<text><![CDATA[A Monsieur le Directeur Général de l’entreprise TCC]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="200">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="20" uuid="123e4567-e89b-12d3-a456-426614174002"/>
+				<text><![CDATA[Objet : Proposition technico-financière - Etudes géotechniques - Essais de matériaux - Ecole SUP-NUM]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="20" uuid="123e4567-e89b-12d3-a456-426614174003"/>
+				<text><![CDATA[Groupe ACCESS ENGINEERING/MIZAN LABS]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
