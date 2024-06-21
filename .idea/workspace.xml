@@ -5,65 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47143030-ac8b-4f28-b812-2b051595363b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mizanbase.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/FactureController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/Facture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/FactureRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/FactureService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Mizanarialblack/Arial Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Mizanarialitalic/ARIALI.TTF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Mizantimenewroman/times new roman bold italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Mizantimenewroman/times new roman bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/fontsfamily1718270274304.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/mizanCalibri/Calibri.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/mizanCalibriBold/calibrib.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/mizandejavuserif/DejaVuSerif-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/mizandejavuserif/DejaVuSerif.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/mizantime/times new roman.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/mizantimebold/times new roman bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/mizantimeitalic/times new roman italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/jasperreports_extension.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/CreateUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/SetPasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/Verification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/VerifyCodeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/VerificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/EmailServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/DevisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/DevisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/ElementDevisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/ElementDevisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/Devis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/Devis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/ElementDevis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/ElementDevis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/entities/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/DevisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/DevisRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/ElementDevisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/ElementDevisRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/TaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/DevisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/DevisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/ElementDevisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/ElementDevisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/ReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/TaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/.settings/org.eclipse.core.resources.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/Devifinal.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/Devifinal.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/Devifinal.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/Devifinal.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/Tachefinal.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/Tachefinal.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/Tachefinal.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/Tachefinal.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/clientfinal.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/clientfinal.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/clientfinal.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/clientfinal.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/elementdevisfinal.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/elementdevisfinal.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/elementdevisfinal.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/elementdevisfinal.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/montantfinal.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/montantfinal.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/montantfinal.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/montantfinal.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/projectfinal.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/projectfinal.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/projectfinal.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/projectfinal.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/projetclientfinal.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/projetclientfinal.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/projetclientfinal.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/projetclientfinal.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/projettachefinal.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/projettachefinal.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/projettachefinal.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/projettachefinal.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mizanlabs/mr/entities/Devis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mizanlabs/mr/entities/Devis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mizanlabs/mr/entities/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mizanlabs/mr/entities/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mizanlabs/mr/entities/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mizanlabs/mr/entities/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +64,8 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/med edine/Desktop/pi_mizan_final_version/MizanBasefinal/MizanBase/src/main/resources/fonts/mizantimebold"
+    "last_opened_file_path": "C:/Users/med edine/Desktop/accesmizan/accessmizanbackend/accesmizanbackend",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RecentsManager">

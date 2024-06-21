@@ -1,10 +1,9 @@
 package com.mizanlabs.mr.controller;
 import com.mizanlabs.mr.repository.TaskRepository;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import com.mizanlabs.mr.service.LigneDevisService;
 //import com.itextpdf.htmlpdf.HtmlConverter;
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
+import jakarta.validation.Valid;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
