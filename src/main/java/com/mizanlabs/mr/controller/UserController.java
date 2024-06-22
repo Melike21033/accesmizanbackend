@@ -24,6 +24,11 @@ public class UserController {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
+    @GetMapping("/users/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
     @PostMapping("/users")
     public ResponseEntity<Map<String, String>> createUser(@RequestBody CreateUserRequest request) {
         userService.createUser(request.getName(), request.getEmail(), request.getRole());
@@ -40,7 +45,21 @@ public class UserController {
         response.put("message", "Verification email sent");
         return ResponseEntity.ok(response);
     }
+    @PutMapping("/users/{id}")
+    public ResponseEntity<Map<String, String>> updateUser(@PathVariable Long id, @RequestBody CreateUserRequest request) {
+        userService.updateUser(id, request.getName(), request.getEmail(), request.getRole());
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "User updated");
+        return ResponseEntity.ok(response);
+    }
 
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<Map<String, String>> deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "User deleted");
+        return ResponseEntity.ok(response);
+    }
     @PostMapping("/verify-code")
     public ResponseEntity<Map<String, String>> verifyCode(@RequestBody VerifyCodeRequest request) {
         boolean isValid = userService.verifyCode(request.getEmail(), request.getCode());

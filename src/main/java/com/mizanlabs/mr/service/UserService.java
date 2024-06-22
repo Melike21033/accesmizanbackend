@@ -83,6 +83,19 @@ public class UserService {
             verificationRepository.deleteByUser(user);
         }
     }
+    public void updateUser(Long id, String name, String email, String role) {
+        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        user.setName(name);
+        user.setEmail(email);
+        user.setRole(role);
+        userRepository.save(user);
+    }
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
     public boolean emailExists(String email) {
         return userRepository.findByEmail(email) != null;
     }
