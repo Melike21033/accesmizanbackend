@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47143030-ac8b-4f28-b812-2b051595363b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/config/CsrfLoggerFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/ContactController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
