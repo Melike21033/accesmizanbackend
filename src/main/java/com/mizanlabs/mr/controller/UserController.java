@@ -2,6 +2,7 @@ package com.mizanlabs.mr.controller;
 
 import com.mizanlabs.mr.entities.CreateUserRequest;
 import com.mizanlabs.mr.entities.SetPasswordRequest;
+import com.mizanlabs.mr.entities.User;
 import com.mizanlabs.mr.entities.VerifyCodeRequest;
 import com.mizanlabs.mr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -17,7 +19,11 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
     @PostMapping("/users")
     public ResponseEntity<Map<String, String>> createUser(@RequestBody CreateUserRequest request) {
         userService.createUser(request.getName(), request.getEmail(), request.getRole());
@@ -53,6 +59,13 @@ public class UserController {
         userService.setPassword(request.getEmail(), request.getPassword());
         Map<String, String> response = new HashMap<>();
         response.put("message", "Password set successfully");
+        return ResponseEntity.ok(response);
+    }
+    @GetMapping("/user-exists")
+    public ResponseEntity<Map<String, Boolean>> emailExists(@RequestParam String email) {
+        boolean exists = userService.emailExists(email);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("exists", exists);
         return ResponseEntity.ok(response);
     }
 }
