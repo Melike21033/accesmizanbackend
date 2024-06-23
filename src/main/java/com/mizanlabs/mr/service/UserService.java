@@ -45,7 +45,7 @@ public class UserService {
             Verification verificationCode = new Verification();
             verificationCode.setUser(user);
             verificationCode.setCode(code);
-            verificationCode.setExpirationDate(LocalDateTime.now().plusMinutes(15));
+            verificationCode.setExpirationDate(LocalDateTime.now().plusMinutes(3));
             verificationRepository.save(verificationCode);
 
             emailService.sendVerificationEmail(email, code);
@@ -98,5 +98,15 @@ public class UserService {
     }
     public boolean emailExists(String email) {
         return userRepository.findByEmail(email) != null;
+    }
+    public LocalDateTime getCodeExpirationTime(String email) {
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            Verification verificationCode = verificationRepository.findTopByUserOrderByExpirationDateDesc(user);
+            if (verificationCode != null) {
+                return verificationCode.getExpirationDate();
+            }
+        }
+        return null;
     }
 }
