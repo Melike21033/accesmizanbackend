@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/contacts")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class ContactController {
 
     private final ContactService contactService;

@@ -17,7 +17,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
+
+/**
+ * Class responsible for security configurations.
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -36,10 +44,10 @@ public class SecurityConfig {
                         .disable()
                 )
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/superadmin/**").hasRole("SUPERADMIN")
+                        .requestMatchers("/**").hasRole("SUPERADMIN")
                         .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
                         .requestMatchers("/api/agent/**").hasAnyRole("AGENT", "ADMIN", "SUPERADMIN")
-                        .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/api/auth/**").permitAll()  // Allow unauthenticated access to the login endpoint
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
@@ -48,7 +56,7 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
-                .cors(cors -> cors.disable());
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()));
 
         return http.build();
     }
@@ -73,10 +81,23 @@ public class SecurityConfig {
     }
 
     @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
+    @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web)  -> web.ignoring()
+        return (web) -> web.ignoring()
                 .requestMatchers("/api/**");
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

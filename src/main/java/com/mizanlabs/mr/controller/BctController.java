@@ -10,7 +10,7 @@ import com.mizanlabs.mr.service.BctService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/bcts")
+@RequestMapping("/api/bcts/admin")
 public class BctController {
 
     private final BctService bctService;

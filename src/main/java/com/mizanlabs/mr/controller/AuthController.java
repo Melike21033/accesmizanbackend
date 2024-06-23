@@ -27,15 +27,15 @@ public class AuthController {
     
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
+    public JwtResponse login(@RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
         );
 
-  SecurityContextHolder.getContext().setAuthentication(authentication);
-   UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-String jwt = jwtUtil.generateToken(userDetails.getUsername());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String jwt = jwtUtil.generateToken(userDetails.getUsername(), userDetails.getAuthorities().toString());
 
-        return jwt;
+        return new JwtResponse(jwt);
     }
 }
