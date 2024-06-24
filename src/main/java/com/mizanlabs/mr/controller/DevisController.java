@@ -364,4 +364,8 @@ public class DevisController {
 
         return ResponseEntity.ok(details);
     }
+    @GetMapping("/status-distribution")
+    public Map<String, Long> getDevisStatusDistribution() {
+        return devisService.getDevisStatusDistribution();
+    }
 }

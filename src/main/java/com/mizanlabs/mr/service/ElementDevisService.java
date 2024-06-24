@@ -14,7 +14,9 @@ import com.mizanlabs.mr.repository.TaskRepository;
 
 import jakarta.transaction.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import com.mizanlabs.mr.entities.Element;
 import com.mizanlabs.mr.entities.Type;
@@ -167,5 +169,17 @@ public class ElementDevisService {
     @Transactional
     public Integer getSumMontantByTaskId(Long taskId) {
         return elementDevisRepository.sumMontantByTaskId(taskId);
+    }
+    public Map<String, Long> getElementDevisStatusDistribution() {
+        List<Object[]> results = elementDevisRepository.getElementDevisStatusDistribution();
+        Map<String, Long> distributionMap = new HashMap<>();
+
+        for (Object[] result : results) {
+            String statusName = (String) result[0];
+            Long count = (Long) result[1];
+            distributionMap.put(statusName, count);
+        }
+
+        return distributionMap;
     }
 }

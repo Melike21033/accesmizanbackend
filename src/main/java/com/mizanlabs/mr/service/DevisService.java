@@ -365,4 +365,16 @@ public class DevisService {
 
 		return refDevis + " - " + projectTitle + " - " + clientName;
 	}
+	public Map<String, Long> getDevisStatusDistribution() {
+		List<Object[]> results = devisRepository.getDevisStatusDistribution();
+		Map<String, Long> distributionMap = new HashMap<>();
+
+		for (Object[] result : results) {
+			String statusName = (String) result[0];
+			Long count = (Long) result[1];
+			distributionMap.put(statusName, count);
+		}
+
+		return distributionMap;
+	}
 }

@@ -34,4 +34,8 @@ public interface ElementDevisRepository extends JpaRepository<ElementDevis, Long
     @Query("SELECT SUM(ed.montant) FROM ElementDevis ed WHERE ed.task.taskId = :taskId AND ed.status.label <> 'PM'")
     Integer sumMontantByTaskId(@Param("taskId") Long taskId);
 
+    @Query("SELECT e.status.label, COUNT(e) " +
+            "FROM ElementDevis e " +
+            "GROUP BY e.status.label")
+    List<Object[]> getElementDevisStatusDistribution();
 }

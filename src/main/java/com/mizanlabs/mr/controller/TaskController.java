@@ -1,6 +1,7 @@
 //TaskController
 package com.mizanlabs.mr.controller;
 import com.mizanlabs.mr.repository.ElementDevisRepository;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 
 import com.mizanlabs.mr.entities.Devis;
@@ -276,6 +277,16 @@ public class TaskController {
     @GetMapping("/status-distribution")
     public Map<String, Long> getTaskStatusDistribution() {
         return taskService.getTaskStatusDistribution();
+    }
+
+    @GetMapping("/status-distribution/by-status")
+    public Map<String, Long> getTaskStatusDistributionByStatus(@RequestParam String status) {
+        return taskService.getTaskStatusDistributionByStatus(status);
+    }
+
+    @GetMapping("/status-distribution/by-date")
+    public Map<String, Long> getTaskStatusDistributionByDateRange(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
+        return taskService.getTaskStatusDistributionByDateRange(startDate, endDate);
     }
     @GetMapping("/durations/taches")
     public ResponseEntity<List<Object[]>> getAllTaskDurations() {

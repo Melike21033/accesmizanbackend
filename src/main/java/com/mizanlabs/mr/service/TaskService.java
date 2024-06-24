@@ -14,11 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -242,16 +238,26 @@ public class TaskService {
         return taskRepository.sumTotalTaskByDevisId(devisId);
     }
 
-    public Map<String, Long> getTaskStatusDistribution() {
-        List<Object[]> results = taskRepository.getTaskStatusDistribution();
-        Map<String, Long> distributionMap = new HashMap<>();
 
+    public Map<String, Long> getTaskStatusDistribution() {
+        return convertToMap(taskRepository.getTaskStatusDistribution());
+    }
+
+    public Map<String, Long> getTaskStatusDistributionByStatus(String status) {
+        return convertToMap(taskRepository.getTaskStatusDistributionByStatus(status));
+    }
+
+    public Map<String, Long> getTaskStatusDistributionByDateRange(Date startDate, Date endDate) {
+        return convertToMap(taskRepository.getTaskStatusDistributionByDateRange(startDate, endDate));
+    }
+
+    private Map<String, Long> convertToMap(List<Object[]> results) {
+        Map<String, Long> distributionMap = new HashMap<>();
         for (Object[] result : results) {
             String statusName = (String) result[0];
             Long count = (Long) result[1];
             distributionMap.put(statusName, count);
         }
-
         return distributionMap;
     }
 

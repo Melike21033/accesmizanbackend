@@ -28,5 +28,8 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     
     List<Project> findByClientId(Long clientId);
     Project findByProjectId(Long projectId);
-
+    @Query("SELECT p.status.label, COUNT(p) " +
+            "FROM Project p " +
+            "GROUP BY p.status.label")
+    List<Object[]> getProjetStatusDistribution();
 }

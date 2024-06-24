@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.mizanlabs.mr.entities.Project;
 import com.mizanlabs.mr.entities.Task;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -41,13 +42,17 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     @Query(value = "SELECT SUM(total_task) FROM task WHERE devis_id = :devisId", nativeQuery = true)
     Integer calculateTotalTaskForDevis(@Param("devisId") Long devisId);
 
-    @Query("SELECT t.status.label, COUNT(t) " +
-            "FROM Task t " +
-            "GROUP BY t.status.label")
-    List<Object[]> getTaskStatusDistribution();
     @Query("SELECT SUM(t.totalTask) FROM Task t WHERE t.devis.id = :devisId")
     Integer sumTotalTaskByDevisId(@Param("devisId") Long devisId);
 
     @Query("SELECT t.start, FUNCTION('DATEDIFF', t.deadline, t.start) FROM Task t")
     List<Object[]> findAllTaskDurations();
+    @Query("SELECT t.status.label, COUNT(t) FROM Task t GROUP BY t.status.label")
+    List<Object[]> getTaskStatusDistribution();
+
+    @Query("SELECT t.status.label, COUNT(t) FROM Task t WHERE t.status.label = :status GROUP BY t.status.label")
+    List<Object[]> getTaskStatusDistributionByStatus(@Param("status") String status);
+
+    @Query("SELECT t.status.label, COUNT(t) FROM Task t WHERE t.start BETWEEN :startDate AND :endDate GROUP BY t.status.label")
+    List<Object[]> getTaskStatusDistributionByDateRange(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 }
