@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -179,5 +180,18 @@ public class Task {
     public Task() {
         super();
         this.totalTask = 0; // Initialise totalTask à 0
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(taskId, task.taskId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskId);
     }
 }

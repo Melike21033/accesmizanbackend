@@ -1,5 +1,7 @@
 //ElementDevis entity
 package com.mizanlabs.mr.entities;
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -205,5 +207,16 @@ public class ElementDevis {
         this.qteLots = qteLots;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ElementDevis that = (ElementDevis) o;
+        return Objects.equals(id, that.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
