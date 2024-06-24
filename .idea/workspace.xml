@@ -6,9 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="47143030-ac8b-4f28-b812-2b051595363b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/VerificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/VerificationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/DevisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/DevisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/ElementDevisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/ElementDevisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/DevisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/DevisRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/ElementDevisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/ElementDevisRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/DevisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/DevisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/ElementDevisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/ElementDevisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mizanlabs/mr/service/TaskService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -16,6 +16,7 @@ import com.mizanlabs.mr.service.TaskService;
 import com.mizanlabs.mr.service.TypeService;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -173,5 +174,9 @@ public class ElementDevisController {
     public ResponseEntity<List<ElementDevis>> getDevisDetailsByType(@PathVariable String typeLabel) {
         List<ElementDevis> elementDevisList = elementDevisService.getDevisDetailsByType(typeLabel);
         return ResponseEntity.ok(elementDevisList);
+    }
+    @GetMapping("/status-distribution")
+    public Map<String, Long> getElementDevisStatusDistribution() {
+        return elementDevisService.getElementDevisStatusDistribution();
     }
 }

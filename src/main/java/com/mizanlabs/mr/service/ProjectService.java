@@ -16,13 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 
+import java.util.*;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Service
 public class ProjectService {
@@ -210,6 +205,18 @@ private final ElementDevisRepository elementDevisRepository;
     }
     public List<Project> getProjectsByClientId(Long clientId) {
         return ProjectRepository.findByClientId(clientId);
+    }
+    public Map<String, Long> getProjetStatusDistribution() {
+        List<Object[]> results = ProjectRepository.getProjetStatusDistribution();
+        Map<String, Long> distributionMap = new HashMap<>();
+
+        for (Object[] result : results) {
+            String statusName = (String) result[0];
+            Long count = (Long) result[1];
+            distributionMap.put(statusName, count);
+        }
+
+        return distributionMap;
     }
 }
 

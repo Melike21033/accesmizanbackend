@@ -32,4 +32,8 @@ public interface DevisRepository extends JpaRepository<Devis, Long> {
     @Modifying
     @Query("UPDATE Devis d SET d.montant = :montant WHERE d.id = :devisId")
     void updateDevisMontant(@Param("devisId") Long devisId, @Param("montant") Integer montant);
+    @Query("SELECT d.status.label, COUNT(d) " +
+            "FROM Devis d " +
+            "GROUP BY d.status.label")
+    List<Object[]> getDevisStatusDistribution();
 }
