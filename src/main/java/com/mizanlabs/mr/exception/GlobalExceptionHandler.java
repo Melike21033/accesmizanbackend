@@ -1,5 +1,8 @@
 package com.mizanlabs.mr.exception;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -27,6 +30,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
+   
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleAll(Exception ex) {
         ApiError apiError = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, "An error occurred");
@@ -34,11 +39,29 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
-    private void logErrorDetails(Exception ex) {
+    private void logErrorDetails(Throwable ex) {
         logger.error("Exception: ", ex);
     }
 
     private ResponseEntity<Object> buildResponseEntity(ApiError apiError) {
         return new ResponseEntity<>(apiError, apiError.getStatus());
+    }
+    
+
+    @ExceptionHandler(StackOverflowError.class)
+    public ResponseEntity<Map<String, Object>> handleStackOverflowError(StackOverflowError ex) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("error", "StackOverflowError");
+        response.put("message", ex.getMessage());
+        response.put("cause", ex.getCause());
+
+        StackTraceElement[] stackTrace = ex.getStackTrace();
+        StringBuilder stackTraceString = new StringBuilder();
+        for (StackTraceElement element : stackTrace) {
+            stackTraceString.append(element.toString()).append("\n");
+        }
+        response.put("stackTrace", stackTraceString.toString());
+
+        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

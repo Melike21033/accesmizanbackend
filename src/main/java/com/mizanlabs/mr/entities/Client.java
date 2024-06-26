@@ -40,6 +40,10 @@ public class Client {
                     private Set<Project> Projects;
 
 
+                    
+//                    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+//                    private Set<Facture> factures; // Liste des factures du client
+
     // getters and setters are omitted for brevity
 
     // No-args constructor
@@ -111,6 +115,14 @@ public class Client {
     public void setNote(String note) {
         this.note = note;
     }
+    
+//    public Set<Facture> getFactures() {
+//        return factures;
+//    }
+//
+//    public void setFactures(Set<Facture> factures) {
+//        this.factures = factures;
+//    }
 
 
 }

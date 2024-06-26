@@ -39,6 +39,10 @@ public class Facture {
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
+    
+    @ManyToOne
+    @JoinColumn(name = "devis_id", nullable = false)
+    private Devis devis;
 
     @OneToMany(mappedBy = "facture", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("facture-elementsDevis")
