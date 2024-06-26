@@ -1,4 +1,6 @@
 package com.mizanlabs.mr.controller;
+import com.mizanlabs.mr.entities.*;
+import com.mizanlabs.mr.repository.DevisRepository;
 import com.mizanlabs.mr.repository.TaskRepository;
 import com.mizanlabs.mr.service.LigneDevisService;
 //import com.itextpdf.htmlpdf.HtmlConverter;
@@ -10,19 +12,15 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.slf4j.Logger;
+import com.mizanlabs.mr.exceptions.ResourceNotFoundException;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import com.mizanlabs.mr.service.ProjectService;
-import com.mizanlabs.mr.service.JasperReportService;
-import java.awt.Color;
 
-import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -30,23 +28,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
-import com.mizanlabs.mr.entities.Devis;
-import com.mizanlabs.mr.entities.ElementDevis;
-import com.mizanlabs.mr.entities.LigneDevis;
-import com.mizanlabs.mr.entities.Project;
-import com.mizanlabs.mr.entities.Task;
 import com.mizanlabs.mr.service.DevisService;
 import com.mizanlabs.mr.service.ElementDevisService;
 import com.mizanlabs.mr.service.TaskService;
@@ -63,37 +47,52 @@ public class DevisController {
     private final ElementDevisService elementDevisService;
     private final LigneDevisService ligneDevisService;
     private final ProjectService projectService;
-    private final JasperReportService jasperReportService;
     private final TaskRepository taskRepository;
+    private DevisRepository devisRepository;
 
     @Autowired
-    public DevisController(DevisService devisService, @Lazy TaskService taskService, ElementDevisService elementDevisService, LigneDevisService ligneDevisService, ProjectService projectService, JasperReportService jasperReportService, TaskRepository taskRepository) {
+    public DevisController(DevisRepository devisRepository,DevisService devisService, @Lazy TaskService taskService, ElementDevisService elementDevisService, LigneDevisService ligneDevisService, ProjectService projectService, TaskRepository taskRepository) {
         this.devisService = devisService;
         this.taskService = taskService;
         this.elementDevisService = elementDevisService;
         this.ligneDevisService = ligneDevisService;
         this.projectService = projectService;
+        this.devisRepository = devisRepository;
 
 
-        this.jasperReportService = jasperReportService;
         this.taskRepository = taskRepository;
     }
+
+    @GetMapping("/details")
+    public ResponseEntity<ProjectClientDTO> getProjectAndClientNames(@RequestParam Long devisId) {
+        Devis devis = devisRepository.findById(devisId)
+                .orElseThrow(() -> new ResourceNotFoundException("Devis not found"));
+        Project project = devis.getProject();
+        Client client = project.getClient();
+
+        ProjectClientDTO projectClientDTO = new ProjectClientDTO();
+        projectClientDTO.setProjectName(project.getTitle());
+        projectClientDTO.setClientName(client.getName());
+
+        return ResponseEntity.ok(projectClientDTO);
+    }
+
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
-
-
-    @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<?> createDevis(@Valid @RequestBody Devis devis, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            List<String> errors = bindingResult.getFieldErrors().stream()
-                    .map(error -> error.getField() + ": " + error.getDefaultMessage())
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errors);
-        }
-
+    @PostMapping()
+    public ResponseEntity<?> createDevis(@Valid @RequestBody Devis devis, @RequestParam("projectid") Long projectId) {
+        try {
         String refDevis = devisService.generateDevisReference(devis.getAnnee());
         devis.setRef_devis(refDevis);
+
+        // Fetch and set the project for the devis
+        Project project = devisService.getProjectById(projectId);
+        devis.setProject(project);
+
         Devis savedDevis = devisService.createDevis(devis);
         return ResponseEntity.ok(savedDevis);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body("Erreur lors de l'ajout de la devis");
+        }
     }
 
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
@@ -124,20 +123,6 @@ public class DevisController {
     @GetMapping("/project/{projectId}")
     public List<Devis> getDevisByProjectId(@PathVariable Long projectId) {
         return devisService.getDevisByProjectId(projectId);
-    }
-    @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
-    @GetMapping("/downloadDevis/{devisId}")
-    public ResponseEntity<byte[]> downloadDevisReport(@PathVariable Long devisId) {
-        try {
-            byte[] pdfContent = jasperReportService.generateDevisReport(devisId).getBody();
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_PDF);
-            String filename = "devis_" + devisId + ".pdf";
-            headers.setContentDispositionFormData(filename, filename);
-            return new ResponseEntity<>(pdfContent, headers, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 
@@ -354,15 +339,9 @@ public class DevisController {
         devisService.updateDevisMontant1(devisId, taskAmount);
     }
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
-    @GetMapping("/{devisId}/details")
-    public ResponseEntity<String> getDevisDetails(@PathVariable Long devisId) {
-        String details = devisService.getDevisDetails(devisId);
-
-        if (details == null) {
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(details);
+    @GetMapping("/detailsss")
+    public DeviProjectClientrefDTO getDevisDetails(@RequestParam("devisId") Long devisId) {
+        return devisService.getDevisDetails(devisId);
     }
     @GetMapping("/status-distribution")
     public Map<String, Long> getDevisStatusDistribution() {

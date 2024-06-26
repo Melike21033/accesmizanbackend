@@ -1,5 +1,6 @@
 package com.mizanlabs.mr.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,7 +42,7 @@ public class Facture {
     private Client client;
 
     @OneToMany(mappedBy = "facture", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference("facture-elementsDevis")
+    @JsonIgnore
     private List<ElementDevis> elements;
 
     // Constructeurs

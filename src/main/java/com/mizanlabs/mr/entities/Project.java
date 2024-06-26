@@ -1,22 +1,10 @@
 package com.mizanlabs.mr.entities;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
-import java.util.Set;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import jakarta.persistence.Table;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.mizanlabs.mr.service.ClientService;
-import com.mizanlabs.mr.service.ProjectService;
+import lombok.Data;
 
+import java.util.Set;
 
 @Data
 @Entity
@@ -65,7 +53,11 @@ public class Project {
 	private Situation situation;
 
 	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference(value = "project-task")
 	private Set<Task> task;
+	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference("project-devis")
+	private Set<Devis> devis;
 
 	public Project() {
 		// Default constructor

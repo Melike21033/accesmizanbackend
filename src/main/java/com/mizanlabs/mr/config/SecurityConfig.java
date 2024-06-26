@@ -45,9 +45,11 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/**").hasRole("SUPERADMIN")
+                        .requestMatchers("/detailsss").permitAll()
                         .requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
                         .requestMatchers("/api/agent/**").hasAnyRole("AGENT", "ADMIN", "SUPERADMIN")
                         .requestMatchers("/api/auth/**").permitAll()  // Allow unauthenticated access to the login endpoint
+                        .requestMatchers("/reports/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
