@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -56,10 +57,6 @@ public class Task {
     @JsonBackReference(value = "devis-task")
     private Devis devis;
 
-    public Task() {
-        super();
-        this.totalTask = 0;
-    }
 
     public Task(Integer totalTask, Long taskId, LocalDate deadline, Integer montant, String taskName, String note,
                 Priorite priority, LocalDate start, Status status, String refTask, Project project,
@@ -81,4 +78,28 @@ public class Task {
     public Integer getTotalTask() {
         return totalTask != null ? totalTask : 0;
     }
+
+
+    public void setTotalTask(Integer totalTask) {
+        this.totalTask = totalTask;
+    }
+
+    public Task() {
+        super();
+        this.totalTask = 0; // Initialise totalTask à 0
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(taskId, task.taskId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskId);
+    }
 }
+

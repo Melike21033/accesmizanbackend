@@ -217,7 +217,6 @@ public class DevisService {
 			nouvellesTaches.add(nouvelleTask);
 			taskRepository.save(nouvelleTask);
 
-			Hibernate.initialize(task.getElementDevis());
 			Set<ElementDevis> elementsDevisCopies = taskService.findElementDevisByTaskId(task.getTaskId());
 			if (!elementsDevisCopies.isEmpty()) {
 				Set<ElementDevis> newelementsDevis = coller_Edevis(nouvelleTask.getTaskId(), elementsDevisCopies);
