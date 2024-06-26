@@ -1,5 +1,6 @@
 //ElementEntity
 package com.mizanlabs.mr.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,7 +33,7 @@ public class Element {
     private Type type;
 
     @OneToMany(mappedBy = "element", fetch = FetchType.LAZY)
-    @JsonManagedReference("element-elementDevis")
+    @JsonIgnore
     private Set<ElementDevis> elementDevis;
 
     public Type getType() {

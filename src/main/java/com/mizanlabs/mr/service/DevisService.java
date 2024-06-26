@@ -1,10 +1,7 @@
 package com.mizanlabs.mr.service;
 
-import com.mizanlabs.mr.entities.ElementDevis;
-import com.mizanlabs.mr.entities.Task;
+import com.mizanlabs.mr.entities.*;
 import com.mizanlabs.mr.repository.DevisRepository;
-import com.mizanlabs.mr.entities.Devis;
-import com.mizanlabs.mr.entities.Project;
 
 import com.mizanlabs.mr.repository.ElementDevisRepository;
 import com.mizanlabs.mr.repository.ProjectRepository;
@@ -351,19 +348,32 @@ public class DevisService {
 
 		devisRepository.save(devis);
 	}
-	public String getDevisDetails(Long devisId) {
-		Devis devis = devisRepository.findById(devisId).orElse(null);
+//	public String getDevisDetails(Long devisId) {
+//		Devis devis = devisRepository.findById(devisId).orElse(null);
+//
+//		if (devis == null) {
+//			return null;
+//		}
+//
+//		String refDevis = devis.getRef_devis();
+//		String projectTitle = devis.getProject().getTitle();
+//		String clientName = devis.getProject().getClient().getName();
+//
+//		return refDevis + " - " + projectTitle + " - " + clientName;
+//	}
+public DeviProjectClientrefDTO getDevisDetails(Long devisId) {
+	Devis devis = devisRepository.findById(devisId).orElse(null);
 
-		if (devis == null) {
-			return null;
-		}
-
-		String refDevis = devis.getRef_devis();
-		String projectTitle = devis.getProject().getTitle();
-		String clientName = devis.getProject().getClient().getName();
-
-		return refDevis + " - " + projectTitle + " - " + clientName;
+	if (devis == null) {
+		return null;
 	}
+
+	String refDevis = devis.getRef_devis();
+	String projectTitle = devis.getProject().getTitle();
+	String clientName = devis.getProject().getClient().getName();
+
+	return new DeviProjectClientrefDTO(refDevis, projectTitle, clientName);
+}
 	public Map<String, Long> getDevisStatusDistribution() {
 		List<Object[]> results = devisRepository.getDevisStatusDistribution();
 		Map<String, Long> distributionMap = new HashMap<>();
@@ -375,5 +385,21 @@ public class DevisService {
 		}
 
 		return distributionMap;
+	}
+	public ProjectClientDTO getProjectAndClientNames(Long devisId, Long projectId) {
+		Devis devis = devisRepository.findById(devisId).orElseThrow(() -> new RuntimeException("Devis not found"));
+		Project project = projectRepository.findById(projectId).orElseThrow(() -> new RuntimeException("Project not found"));
+
+		if (!devis.getProject().getProjectId().equals(project.getProjectId())) {
+			throw new RuntimeException("Devis does not belong to the specified project");
+		}
+
+		String projectName = project.getTitle();
+		String clientName = project.getClient().getName();
+
+		return new ProjectClientDTO(projectName, clientName);
+	}
+	public Project getProjectById(Long projectId) {
+		return projectRepository.findById(projectId).orElseThrow(() -> new RuntimeException("Project not found"));
 	}
 }

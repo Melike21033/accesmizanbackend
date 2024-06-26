@@ -117,16 +117,21 @@ public class ElementDevisController {
     }
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 
-    @PostMapping("/assign-to-task/{taskId}/{elementId}")
-    public ResponseEntity<ElementDevis> assignElementDevisToTask(@RequestBody ElementDevis elementDevis, @PathVariable Long taskId, @PathVariable Long elementId) {
-
+    @PostMapping("/assign-to-task")
+    public ResponseEntity<ElementDevis> assignElementDevisToTask(@RequestBody ElementDevis elementDevis, @RequestParam Long taskId, @RequestParam Long elementId) {
         String refEdevis = elementDevisService.getMaxRefEdevisForTask(taskId);
         elementDevis.setRefEdevis(refEdevis);
-        Optional<Element> element=elementService.getElementById(elementId);
-        String name=element.get().getName();
-        elementDevis.setName(name);
-        ElementDevis createdElementDevis = elementDevisService.createAndAssignElementDevisToTask(elementDevis, taskId,elementId);
-        return new ResponseEntity<>(createdElementDevis, HttpStatus.CREATED);
+
+        Optional<Element> element = elementService.getElementById(elementId);
+        if (element.isPresent()) {
+            elementDevis.setElement(element.get());
+            elementDevis.setName(element.get().getName());
+
+            ElementDevis createdElementDevis = elementDevisService.createAndAssignElementDevisToTask(elementDevis, taskId, elementId);
+            return new ResponseEntity<>(createdElementDevis, HttpStatus.CREATED);
+        } else {
+            return ResponseEntity.badRequest().body(null);
+        }
     }
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 
