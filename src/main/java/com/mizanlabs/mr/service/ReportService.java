@@ -1,7 +1,6 @@
 package com.mizanlabs.mr.service;
 
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.export.*;
 import net.sf.jasperreports.engine.util.JRFontNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +25,12 @@ public class ReportService {
             Map<String, Object> params = new HashMap<>();
             params.put("devis_id", devisId);
 
-            JasperPrint jasperPrint = JasperFillManager.fillReport(getMainReportFile(), params, connection);
+            InputStream reportStream = getMainReportFile();
+            if (reportStream == null) {
+                throw new JRException("Le fichier de rapport Devifinal.jasper n'a pas été trouvé.");
+            }
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportStream, params, connection);
 
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
@@ -39,6 +43,11 @@ public class ReportService {
     }
 
     private InputStream getMainReportFile() {
-        return getClass().getResourceAsStream("/jasper/Devifinal.jasper");
+        InputStream inputStream = getClass().getResourceAsStream("/jasper/Devifinal.jasper");
+        if (inputStream == null) {
+            throw new RuntimeException("Le fichier de rapport Devifinal.jasper n'a pas été trouvé.");
+        }
+        return inputStream;
     }
 }
+

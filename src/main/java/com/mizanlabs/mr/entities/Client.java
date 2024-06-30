@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Entity
 @Table(name = "clients")
-@JsonIgnoreProperties({"projects"})
+@JsonIgnoreProperties({"projects", "factures"})
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,14 +37,18 @@ public class Client {
                     @OneToMany(mappedBy = "client")
                     @JsonIgnoreProperties("Projects")
 
-                    private Set<Project> Projects;
+                    private Set<Project> projects;
 
 
                     
 //                    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
 //                    private Set<Facture> factures; // Liste des factures du client
 
-    // getters and setters are omitted for brevity
+                    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+                    private Set<Facture> factures;
+
+                    
+                    // getters and setters are omitted for brevity
 
     // No-args constructor
     public Client() {
@@ -52,7 +56,7 @@ public class Client {
 
     // All-args constructor
 
-    public Client(Long id, String name, Status status, String telephone, String email, String address, String note, Set<Project> projects) {
+    public Client(Long id, String name, Status status, String telephone, String email, String address, String note, Set<Project> projects, Set<Facture> factures) {
         this.id = id;
         this.name = name;
         this.status = status;
@@ -60,7 +64,8 @@ public class Client {
         this.email = email;
         this.address = address;
         this.note = note;
-        Projects = projects;
+        this.projects = projects;
+        this.factures = factures;
     }
 
     public Long getId() {
@@ -116,13 +121,13 @@ public class Client {
         this.note = note;
     }
     
-//    public Set<Facture> getFactures() {
-//        return factures;
-//    }
-//
-//    public void setFactures(Set<Facture> factures) {
-//        this.factures = factures;
-//    }
+    public Set<Facture> getFactures() {
+        return factures;
+    }
+
+    public void setFactures(Set<Facture> factures) {
+        this.factures = factures;
+    } 
 
 
 }

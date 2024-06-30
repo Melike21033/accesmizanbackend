@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.mizanlabs.mr.service.DevisService;
 import com.mizanlabs.mr.service.ElementDevisService;
+import com.mizanlabs.mr.service.FactureService;
 import com.mizanlabs.mr.service.TaskService;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -49,6 +50,7 @@ public class DevisController {
     private final ProjectService projectService;
     private final TaskRepository taskRepository;
     private DevisRepository devisRepository;
+    private FactureService factureService;
 
     @Autowired
     public DevisController(DevisRepository devisRepository,DevisService devisService, @Lazy TaskService taskService, ElementDevisService elementDevisService, LigneDevisService ligneDevisService, ProjectService projectService, TaskRepository taskRepository) {
@@ -346,5 +348,15 @@ public class DevisController {
     @GetMapping("/status-distribution")
     public Map<String, Long> getDevisStatusDistribution() {
         return devisService.getDevisStatusDistribution();
+    }
+    
+    @PutMapping("/valider/{devisId}")
+    public ResponseEntity<List<Facture>> validerDevisEtGenererFactures(@PathVariable Long devisId) {
+        try {
+            List<Facture> factures = factureService.validerDevisEtGenererFactures(devisId);
+            return ResponseEntity.ok(factures);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body(null);
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.mizanlabs.mr.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -37,12 +38,16 @@ public class Facture {
     @Column(name = "montant_residuel", nullable = false)
     private Double montantResiduel;
 
+    @Column(name = "modalite")
+    private String modalite;
+
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-    
+
     @ManyToOne
     @JoinColumn(name = "devis_id", nullable = false)
+    @JsonBackReference(value = "devis-facture")
     private Devis devis;
 
     @OneToMany(mappedBy = "facture", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -50,13 +55,15 @@ public class Facture {
     private List<ElementDevis> elements;
 
     // Constructeurs
-    public Facture(Long id, Date dateCreation, Double montantTotal, Double montantResiduel, Client client, List<ElementDevis> elements) {
+    public Facture(Long id, Date dateCreation, Double montantTotal, Double montantResiduel, Client client, Devis devis, List<ElementDevis> elements, String modalite) {
         this.id = id;
         this.dateCreation = dateCreation;
         this.montantTotal = montantTotal;
         this.montantResiduel = montantResiduel;
         this.client = client;
+        this.devis = devis;
         this.elements = elements;
+        this.modalite = modalite;
     }
 
     public Facture() {}
@@ -94,12 +101,28 @@ public class Facture {
         this.montantResiduel = montantResiduel;
     }
 
+    public String getModalite() {
+        return modalite;
+    }
+
+    public void setModalite(String modalite) {
+        this.modalite = modalite;
+    }
+
     public Client getClient() {
         return client;
     }
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Devis getDevis() {
+        return devis;
+    }
+
+    public void setDevis(Devis devis) {
+        this.devis = devis;
     }
 
     public List<ElementDevis> getElements() {

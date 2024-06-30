@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.20.6  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="montantfinal" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a9025744-29be-4d9c-a68b-9dc42fe215f4">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="jasper adapter"/>
 	<property name="net.sf.jasperreports.print.create.bookmarks" value="false"/>
 	<parameter name="devis_id" class="java.lang.Long" isForPrompting="false"/>
 	<queryString language="SQL">

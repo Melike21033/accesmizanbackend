@@ -63,6 +63,10 @@ public class Devis {
     @OneToMany(mappedBy = "devis", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference(value = "devis-task")
     private List<Task> tasks;
+    
+    @OneToMany(mappedBy = "devis", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "devis-facture")
+    private List<Facture> factures;
 
     @Column(name = "MP1")
     private String MP1;

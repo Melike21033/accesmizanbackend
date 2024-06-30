@@ -8,4 +8,6 @@ import java.util.List;
 public interface StatusRepository extends JpaRepository<Status, Long> {
     List<Status> findByLabel(String label);
 
+	Status findByLabelAndTableref(String string, String string2);
+
 }
