@@ -75,12 +75,26 @@ public class ElementDevisService {
     }
     public boolean deleteElementDevis(Long id) {
         if (elementDevisRepository.existsById(id)) {
+            // Retrieve the element to be deleted
+            ElementDevis elementDevis = elementDevisRepository.findById(id).orElseThrow(() -> new RuntimeException("ElementDevis not found with id: " + id));
 
+            // Retrieve the task associated with the element
+            Task task = taskRepository.findById(elementDevis.getTask().getTaskId()).orElseThrow(() -> new RuntimeException("Task not found with id: " + elementDevis.getTask().getTaskId()));
+
+            // Update the total task amount before deleting the element
+            task.setTotalTask(task.getTotalTask() - elementDevis.getMontant());
+
+            // Save the updated task
+            taskRepository.save(task);
+
+            // Delete the element
             elementDevisRepository.deleteById(id);
+
             return true;
         }
         return false;
     }
+
     public List<ElementDevis> getElementDevisByTaskId(Long taskId) {
         return elementDevisRepository.findByTask_TaskId(taskId);
     }

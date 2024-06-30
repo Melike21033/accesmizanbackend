@@ -214,77 +214,7 @@ public class DevisController {
         String generatedReference = devisService.generateDevisReference(annee);
         return generatedReference;
     }
-    @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
-    @PostMapping(value = "/pdf/generate", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> generatePDF(@RequestBody Map<String, String> payload, HttpServletResponse response) {
-        // HTML content with dynamic image
-        String imageTag = "<img src=\"http://localhost:8082/assets/logo.png\" style=\"width: 150px; margin-bottom: 30px; margin-left: 10px;\" alt=\"\" />";
-        String htmlContent = "<div>" + imageTag + payload.get("htmlContent") + "</div>";
 
-        try (ByteArrayOutputStream initialPdfOutStream = new ByteArrayOutputStream();
-             ByteArrayOutputStream finalPdfOutStream = new ByteArrayOutputStream()) {
-
-            PdfRendererBuilder builder = new PdfRendererBuilder();
-
-            builder.useFastMode();
-            // Update this path to your resources path
-            builder.withHtmlContent(htmlContent, "file:///C:/path/to/resources/static/assets/");
-            builder.toStream(initialPdfOutStream);
-            builder.run();
-
-            byte[] initialPdfBytes = initialPdfOutStream.toByteArray();
-            try (PDDocument document = PDDocument.load(new ByteArrayInputStream(initialPdfBytes))) {
-                PDFont font = PDType1Font.HELVETICA_BOLD;
-                float fontSize = 8;
-                float margin = 50; // Side margins
-                float bottomMargin = 20; // Bottom margin for footer
-
-                int pageNum = 0;
-                for (PDPage page : document.getPages()) {
-                    pageNum++;
-                    PDRectangle pageSize = page.getMediaBox();
-                    float width = pageSize.getWidth();
-                    float startY = pageSize.getLowerLeftY() + bottomMargin;
-
-                    try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true, true)) {
-                        // Draw line
-                        contentStream.setLineWidth(1);
-                        contentStream.moveTo(margin, startY - 15);
-                        contentStream.lineTo(width - margin, startY - 15);
-                        contentStream.stroke();
-
-                        // Footer text
-                        contentStream.beginText();
-                        contentStream.setFont(font, fontSize);
-                        contentStream.newLineAtOffset(margin, startY);
-                        contentStream.showText("Groupe ACCESS ENGINEERING/MIZAN LABS, MD B N°252, Tevragh Zeina - Nouakchott");
-                        contentStream.newLineAtOffset(0, -fontSize * 1.2f); // Move to next line
-
-                        contentStream.showText("Tél: (P) +222 32 04 66 24, +222 45 29 85 04, Email: bureau.access@gmail.com, siteweb: www.acccess.mr");
-                        contentStream.endText();
-
-                        // Page number
-                        contentStream.beginText();
-                        contentStream.setFont(font, fontSize);
-                        contentStream.newLineAtOffset(width - margin - 40, startY);
-                        contentStream.showText("Page " + pageNum);
-                        contentStream.endText();
-                    }
-                }
-
-                document.save(finalPdfOutStream);
-            }
-
-            byte[] finalPdfBytes = finalPdfOutStream.toByteArray();
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_PDF);
-            headers.setContentDispositionFormData("attachment", "devis.pdf");
-
-            return new ResponseEntity<>(finalPdfBytes, headers, HttpStatus.OK);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error generating PDF: " + e.getMessage());
-        }
-    }
     @PostMapping("/{devisId}/copy")
     public ResponseEntity <Devis> copier (@PathVariable long  devisId){
         Devis copie = devisService.copierDevis(devisId);

@@ -27,7 +27,8 @@ public class EmailServiceImpl implements EmailService {
                     "<div style='max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px; background: #f9f9f9;'>" +
                     "<h2 style='color: #333;'>Code de Vérification</h2>" +
                     "<p style='font-size: 1.1em;'>Bonjour,</p>" +
-                    "<p style='font-size: 1.1em;'>Nous sommes heureux de vous accueillir dans notre équipe.. Votre code de vérification est :</p>" +
+                    "<p style='font-size: 1.1em;'>Nous sommes heureux de vous accueillir dans notre équipe.</p>" +
+                    "<p style='font-size: 1.1em;'>Votre code de vérification est :</p>" +
                     "<div style='text-align: center; margin: 20px 0;'>" +
                     "<span style='display: inline-block; padding: 10px 20px; font-size: 1.5em; color: white; background: #007bff; border-radius: 5px;'>" + code + "</span>" +
                     "</div>" +
