@@ -9,13 +9,13 @@ public class Situation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-    private String label;
+    private String labels;
 
     public Situation() {
     }
 
-    public Situation(Long id, String label) {
-        this.label = label;
+    public Situation(Long id, String labels) {
+        this.labels = labels;
     }
 
     public Long getId() {
@@ -23,10 +23,10 @@ public class Situation {
     }
 
     public String getLabel() {
-        return label;
+        return labels;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public void setLabel(String labels) {
+        this.labels = labels;
     }
 }

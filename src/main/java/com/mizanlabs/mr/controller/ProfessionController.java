@@ -2,6 +2,7 @@
 package com.mizanlabs.mr.controller;
 
 import com.mizanlabs.mr.entities.Profession;
+import com.mizanlabs.mr.repository.ProfessionRepository;
 import com.mizanlabs.mr.service.ProfessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,10 +15,11 @@ import java.util.Optional;
 @RequestMapping("/api/Professions")
 public class ProfessionController {
     private final ProfessionService ProfessionService;
-
+private final ProfessionRepository professionRepository;
     @Autowired
-    public ProfessionController(ProfessionService ProfessionService) {
+    public ProfessionController(ProfessionService ProfessionService, ProfessionRepository professionRepository) {
         this.ProfessionService = ProfessionService;
+        this.professionRepository = professionRepository;
     }
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
     @GetMapping
@@ -69,6 +71,15 @@ public class ProfessionController {
         } catch (Exception e) {
             // Handle specific exceptions and provide more context to the client
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while deleting the Profession");
+        }
+    }
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Profession> getProfessionByName(@PathVariable String name) {
+        List<Profession> professions = professionRepository.findByLabel(name);
+        if (professions != null && !professions.isEmpty()) {
+            return ResponseEntity.ok(professions.get(0));
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 }

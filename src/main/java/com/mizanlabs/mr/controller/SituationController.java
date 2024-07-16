@@ -2,6 +2,8 @@
 package com.mizanlabs.mr.controller;
 
 import com.mizanlabs.mr.entities.Situation;
+import com.mizanlabs.mr.entities.Situation;
+import com.mizanlabs.mr.repository.SituationRepository;
 import com.mizanlabs.mr.service.SituationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,10 +17,11 @@ import java.util.Optional;
 @RequestMapping("/api/Situations")
 public class SituationController {
     private final SituationService situationService;
-
+private  final SituationRepository situationRepository;
     @Autowired
-    public SituationController(SituationService situationService) {
+    public SituationController(SituationService situationService, SituationRepository situationRepository) {
         this.situationService = situationService;
+        this.situationRepository = situationRepository;
     }
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
     @GetMapping
@@ -71,6 +74,15 @@ public class SituationController {
         } catch (Exception e) {
             // Handle specific exceptions and provide more context to the client
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while deleting the Situation");
+        }
+    }
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Situation> getSituationByName(@PathVariable String name) {
+        List<Situation> Situations = SituationRepository.findByLabel1(name);
+        if (Situations != null && !Situations.isEmpty()) {
+            return ResponseEntity.ok(Situations.get(0));
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 }

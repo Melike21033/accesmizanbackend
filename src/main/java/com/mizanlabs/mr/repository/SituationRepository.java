@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface SituationRepository extends JpaRepository<Situation, Long> {
-    List<Situation> findByLabel(String label);
+    static List<Situation> findByLabel1(String label1) {
+        return null;
+    }
 
 }

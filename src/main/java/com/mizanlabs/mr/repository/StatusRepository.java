@@ -9,5 +9,6 @@ public interface StatusRepository extends JpaRepository<Status, Long> {
     List<Status> findByLabel(String label);
 
 	Status findByLabelAndTableref(String string, String string2);
+    List<Status> findByTablerefAndLabel(String tableref, String label);
 
 }

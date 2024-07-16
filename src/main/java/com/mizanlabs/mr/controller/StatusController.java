@@ -1,6 +1,7 @@
 package com.mizanlabs.mr.controller;
 
 import com.mizanlabs.mr.entities.Status;
+import com.mizanlabs.mr.repository.StatusRepository;
 import com.mizanlabs.mr.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,10 +15,11 @@ import java.util.Optional;
 @RequestMapping("/api/Status")
 public class StatusController {
     private final StatusService StatusService;
-
+    private final StatusRepository statusRepository;
     @Autowired
-    public StatusController(StatusService StatusService) {
+    public StatusController(StatusService StatusService, StatusRepository statusRepository) {
         this.StatusService = StatusService;
+        this.statusRepository = statusRepository;
     }
     @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
     @GetMapping
@@ -71,6 +73,15 @@ public class StatusController {
         } catch (Exception e) {
             // Handle specific exceptions and provide more context to the client
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while deleting the Status");
+        }
+    }
+    @GetMapping("/label/{label}/tableref/{tableref}")
+    public ResponseEntity<Status> getStatusByLabelAndTableref(@PathVariable String label, @PathVariable String tableref) {
+        List<Status> statuses = statusRepository.findByTablerefAndLabel(tableref,label);
+        if (statuses != null && !statuses.isEmpty()) {
+            return ResponseEntity.ok(statuses.get(0));
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 }
